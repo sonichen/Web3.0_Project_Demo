@@ -20,7 +20,8 @@ const mandate=async() => {
   const arr=eval(voterAddress.value);//字符串转数组
   const account=await getAccount();
   console.log(account);
-  voteContract.methods.mandate(arr).send({from:account}).on(
+  voteContract.methods.mandate(arr).send({from:account})
+  .on(
     "receipt",()=>{
       console.log("选票分发成功");
     }

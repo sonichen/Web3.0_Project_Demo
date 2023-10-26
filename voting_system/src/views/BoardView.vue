@@ -17,6 +17,14 @@ const vote=async(index)=>{
   const result=await voteContract.methods.vote(index).send({from:account.value});
   console.log(result);
 };
+const initEventListen=()=>{
+  voteContract.events.votoSuccess({ fromBlock:0},(err,event)=>{
+    console.log("监听执行");
+    console.log(event);
+  }).on("data",(event)=>{
+    console.log("合约触发的事件: ",event);
+  })
+}
 onMounted(async()=>{
     await getBoardInfo();
 })

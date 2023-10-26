@@ -6,12 +6,20 @@ const { web3, voteContract,getAccount } = useWeb3();
 // 定义变量
 const account=ref(""); //当前账号
 const voterInfo=ref({});// 选民信息
-
+const delegatorAddress=ref("");// 受托人信息
  const getVoteInfo=async ()=>{
     account.value=await getAccount();
     voterInfo.value=await voteContract.methods.voters(account.value).call();
  }
  
+ const delegate=async ()=>{
+    voteContract.methods.delegate(delegatorAddress.value).send({from:account.value})
+    .on(
+    "receipt",()=>{
+      console.log("委托成功");
+    }
+  )
+ };
  onMounted(async()=>{
     await getVoteInfo();
   })
@@ -44,6 +52,14 @@ const voterInfo=ref({});// 选民信息
         <p class="label">投票ID</p>
         <p class="address">{{ voterInfo.targetId }}</p>
     </van-space>
+    <br/>
+    <div class="btn">
+        <van-cell-group insert>
+            <van-field v-model="delegatorAddress" label="受托人地址" placeholder="请输入受托人地址">
+            </van-field>
+            <van-button block @click="delegate"> 委托他人带投</van-button>
+        </van-cell-group>
+    </div>
 </div>
 </template>
 
