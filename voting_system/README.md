@@ -37,8 +37,8 @@ npm run build
 
 ## 运行截图
 
-![image-20231026184952649](assets\image-20231026184952649.png)
+![image-20231026184952649](https://github.com/sonichen/Web3.0_Project_Demo/blob/main/voting_system/assets/image-20231026184937376.png?raw=true)
 
-![image-20231026185009940](assets\image-20231026185009940.png)
+![image-20231026185009940](https://github.com/sonichen/Web3.0_Project_Demo/blob/main/voting_system/assets/image-20231026185009940.png?raw=true)
 
-![image-20231026185030757](assets\image-20231026185030757.png)
+![image-20231026185030757](https://github.com/sonichen/Web3.0_Project_Demo/blob/main/voting_system/assets/image-20231026185030757.png?raw=true)
